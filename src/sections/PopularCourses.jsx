@@ -3,6 +3,9 @@ import { useRef, useEffect } from 'react';
 import { courses } from '../constants';
 import { Course } from '../components';
 import { register } from 'swiper/element/bundle';
+import { SliderNavigation } from '../components';
+import { motion } from 'framer-motion';
+import { centerVariants } from '../constants/motion';
 import 'swiper/css';
 
 register();
@@ -32,7 +35,7 @@ const PopularCourses = () => {
     return <section id="popular">
         <div className="flex flex-col gap-y-24">
             <SectionHeader title='Explore Most Popular Our Courses' link='#'/>
-            <div className='flex flex-col gap-y-4'>
+            <motion.div variants={centerVariants} initial='hidden' whileInView='visible' viewport={{margin: '0px 0px -200px 0px', once: true}} className='flex flex-col gap-y-4'>
                 <swiper-container ref={sliderRef}>
                     {
                         courses.map((course) => {
@@ -52,7 +55,8 @@ const PopularCourses = () => {
                         })
                     }
                 </swiper-container>
-            </div>
+                <SliderNavigation ref={sliderRef}/>
+            </motion.div>
         </div>
     </section>;
 };
