@@ -1,4 +1,4 @@
-import { Header, Statistics, CTA, Footer } from "./components";
+import { Header, Statistics, Cta, Footer } from "./components";
 import { About, Blogs, Courses, Hero, Instructors, PopularCourses } from "./sections";
 
 export default function App() {
@@ -12,7 +12,7 @@ export default function App() {
             <Courses />
             <Instructors />
             <Blogs />
-            <CTA />
+            <Cta />
             <Footer />
         </>
     );
